@@ -1,0 +1,14 @@
+fileopen fhandle 'Data/filename.txt' 0
+filereadln fhandle filename
+fileclose fhandle
+
+connect '/C=28'
+setbaud 9600
+pause 2
+
+sprintf2 savestring '%s_scales.log' filename
+
+; change the current directory
+changedir 'C:\Users\dshar\OneDrive - University of Cambridge\Documents\JRF\LatentSpaces\Data'
+
+logopen savestring 0 0 0 1 0 0 0
