@@ -22,6 +22,9 @@ classdef LatentResults
                     arduinotimes(i) = datetime(line(2:24));
                     arduinoreadings = [arduinoreadings; str2double(split(line(27:end), ", ")).'];
                 end
+                if size(arduinoreadings, 2) == 1681
+                    arduinoreadings = arduinoreadings(:, 1:1680);
+                end
 
                 % Extract scale measurements
                 lines = readlines("Data/"+filename+"_scales.log");
@@ -46,7 +49,9 @@ classdef LatentResults
                     posreadings(i, :) = vals(3:7).';
                 end
 
-                %Scale data is slowest: interpolate others to match
+                % Scale data is slowest: interpolate others to match
+                % Note any EIT data is slower, but still currently
+                % interpolating from scales
                 [scaletimes, ia, ~] = unique(scaletimes);
                 obj.times = seconds(scaletimes-scaletimes(1)).';
                 obj.forces = scalereadings(ia);
