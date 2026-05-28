@@ -2,7 +2,7 @@ fileopen fhandle 'Data/filename.txt' 0
 filereadln fhandle filename
 fileclose fhandle
 
-connect '/C=10'
+connect '/C=15'
 setbaud 9600
 pause 3
 sendln 'h'

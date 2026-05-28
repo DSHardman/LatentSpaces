@@ -7,7 +7,7 @@ import os
 import datetime
 import random
 
-savestring = "H1Localise"
+savestring = "R1a"
 with open("Data/filename.txt", "w") as f:
     f.write(savestring)
 
@@ -18,8 +18,11 @@ urnie.set_tcp([0, 0, 0.1640, 0, 0, 0])
 # exit()
 
 # Set at height just before fingertip makes contact with force plate
-defaultpose = [0.292042, -0.174061, 0.118453, 2.25038, -2.18194, -0.00928678]
+# defaultpose = [0.292042, -0.174061, 0.118453, 2.25038, -2.18194, -0.00928678]
 # defaultpose = [0.290023, -0.19214, 0.0874012+0.01, 2.25038, -2.18195, -0.00929016]
+# defaultpose = [0.35031, -0.177798, 0.117821, 2.26559, -2.17504, -0.0158261]
+# defaultpose = [0.284625, -0.173465, 0.0862045, 2.26555, -2.17506, -0.0158023]
+defaultpose = [0.284626, -0.173463, 0.0904381, 2.26556, -2.17506, -0.0158294]
 
 urnie.movel(defaultpose, vel=0.05, acc=0.05)
 # urnie.close()
@@ -78,7 +81,7 @@ time.sleep(3)
 
 with open("Data/"+savestring+"_positions.txt", "w") as f:
 
-    collectlocalization(1000)
+    # collectlocalization(1000)
 
     # for i in range(10):
     #     print(i)
@@ -97,7 +100,20 @@ with open("Data/"+savestring+"_positions.txt", "w") as f:
     #         run_given_params(0, 0, 0, 0, 4, j/2, 0.004)
     #         run_given_params(0, 0, 0, 0, 4, j/2, 0.005)
 
-    # run_given_params(0, 0, 0.4, 0, 4, 2, 0.02)
+    for i in range(5):
+        print(i)
+        for j in range(3):
+            print(j)
+            #  x, y, Xangle, Yangle, Duration, PauseDuration, Depth
+            run_given_params(0, 0, 0, 0, 12, 2*j, 0.001)
+            run_given_params(0, 0, 0, 0, 12, 2*j, 0.003)
+            run_given_params(0, 0, 0, 0, 12, 2*j, 0.005)
+            run_given_params(0, 0, 0, 0, 12, 2*j, 0.008)
+
+            run_given_params(0, 0, 0, 0, 8, 2*j, 0.001)
+            run_given_params(0, 0, 0, 0, 8, 2*j, 0.003)
+            run_given_params(0, 0, 0, 0, 8, 2*j, 0.005)
+            run_given_params(0, 0, 0, 0, 8, 2*j, 0.008)
 
 os.system("taskkill /IM ttermpro.exe")
 urnie.movel(np.add(defaultpose, [0, 0, 0.005, 0, 0, 0]), vel=0.05, acc=0.05)
