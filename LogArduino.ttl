@@ -5,7 +5,7 @@ fileclose fhandle
 connect '/C=10'
 setbaud 9600
 pause 3
-sendln 'p'
+sendln 'f'
 
 sprintf2 savestring '%s_arduino.log' filename
 
