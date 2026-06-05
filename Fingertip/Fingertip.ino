@@ -170,8 +170,8 @@ void loop() {
   } else if (readmode=='f') { // Return FSR measurements before force data
     Serial.print(analogRead(A1));
     Serial.print(", ");
-    Serial.print(analogRead(A3));
-    Serial.print(", ");
+    Serial.println(analogRead(A3));
+    // Serial.print(", ");
     delay(10);
   } else if (readmode=='n') { // Return Benhui measurements before force data
     Serial.print(analogRead(A0));

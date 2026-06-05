@@ -2,10 +2,10 @@ fileopen fhandle 'Data/filename.txt' 0
 filereadln fhandle filename
 fileclose fhandle
 
-connect '/C=15'
+connect '/C=10'
 setbaud 9600
 pause 3
-sendln 'h'
+sendln 'p'
 
 sprintf2 savestring '%s_arduino.log' filename
 
