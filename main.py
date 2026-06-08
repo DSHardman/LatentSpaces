@@ -7,7 +7,7 @@ import os
 import datetime
 import random
 
-savestring = "F1a"
+savestring = "Z1Localise"
 with open("Data/filename.txt", "w") as f:
     f.write(savestring)
 
@@ -28,7 +28,8 @@ urnie.set_tcp([0, 0, 0.1640, 0, 0, 0])
 # defaultpose = [0.288454, -0.165453, 0.0860761, 2.26561, -2.17504, -0.0157469]
 # defaultpose = [0.288814, -0.164413, 0.0916515, 2.2738, -2.16296, -0.0130545]
 # defaultpose = [0.351013, -0.180088, 0.122748, 2.2738, -2.16298, -0.0130843]
-defaultpose = [0.283484, -0.165707, 0.0912091, 2.2738, -2.16301, -0.0130203]
+# defaultpose = [0.283484, -0.165707, 0.0912091, 2.2738, -2.16301, -0.0130203]
+defaultpose = [0.350963, -0.17528, 0.123165, 2.28752, -2.14647, -0.015525]
 
 urnie.movel(defaultpose, vel=0.05, acc=0.05)
 # urnie.close()
@@ -87,7 +88,7 @@ time.sleep(3)
 
 with open("Data/"+savestring+"_positions.txt", "w") as f:
 
-    # collectlocalization(1000)
+    collectlocalization(1000)
 
     # for i in range(10):
     #     print(i)
@@ -106,22 +107,22 @@ with open("Data/"+savestring+"_positions.txt", "w") as f:
     #         run_given_params(0, 0, 0, 0, 4, j/2, 0.004)
     #         run_given_params(0, 0, 0, 0, 4, j/2, 0.005)
 
-    for i in range(5):
-        print(i)
-        for j in range(3):
-            print(j)
-            #  x, y, Xangle, Yangle, Duration, PauseDuration, Depth
-            run_given_params(0, 0, 0, 0, 12, 2*j, 0.001)
-            run_given_params(0, 0, 0, 0, 12, 2*j, 0.002)
-            run_given_params(0, 0, 0, 0, 12, 2 * j, 0.0025)
-            run_given_params(0, 0, 0, 0, 12, 2*j, 0.003)
-            # run_given_params(0, 0, 0, 0, 12, 2*j, 0.005)
-
-            run_given_params(0, 0, 0, 0, 8, 2*j, 0.001)
-            run_given_params(0, 0, 0, 0, 8, 2*j, 0.002)
-            run_given_params(0, 0, 0, 0, 8, 2 * j, 0.0025)
-            run_given_params(0, 0, 0, 0, 8, 2*j, 0.003)
-            # run_given_params(0, 0, 0, 0, 8, 2*j, 0.005)
+    # for i in range(5):
+    #     print(i)
+    #     for j in range(3):
+    #         print(j)
+    #         #  x, y, Xangle, Yangle, Duration, PauseDuration, Depth
+    #         run_given_params(0, 0, 0, 0, 12, 2*j, 0.001)
+    #         run_given_params(0, 0, 0, 0, 12, 2*j, 0.002)
+    #         run_given_params(0, 0, 0, 0, 12, 2 * j, 0.0025)
+    #         run_given_params(0, 0, 0, 0, 12, 2*j, 0.003)
+    #         # run_given_params(0, 0, 0, 0, 12, 2*j, 0.005)
+    #
+    #         run_given_params(0, 0, 0, 0, 8, 2*j, 0.001)
+    #         run_given_params(0, 0, 0, 0, 8, 2*j, 0.002)
+    #         run_given_params(0, 0, 0, 0, 8, 2 * j, 0.0025)
+    #         run_given_params(0, 0, 0, 0, 8, 2*j, 0.003)
+    #         # run_given_params(0, 0, 0, 0, 8, 2*j, 0.005)
 
 os.system("taskkill /IM ttermpro.exe")
 urnie.movel(np.add(defaultpose, [0, 0, 0.005, 0, 0, 0]), vel=0.05, acc=0.05)
